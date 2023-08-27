@@ -45,7 +45,7 @@ function App() {
     validateField(e);
   };
 
-  const handleTouched = (e) => {
+  const handleBlur = (e) => {
     if (!touched[e.target.name]) {
       setTouched((prev) => ({ ...prev, [e.target.name]: true }));
       validateField(e);
@@ -71,7 +71,7 @@ function App() {
           name="firstName"
           value={values.firstName}
           onChange={handleChange}
-          handleTouched={handleTouched}
+          onBlur={handleBlur}
           label="First Name"
           error={touched.firstName && errors.firstName}
           required
@@ -81,7 +81,7 @@ function App() {
           name="lastName"
           value={values.lastName}
           onChange={handleChange}
-          handleTouched={handleTouched}
+          onBlur={handleBlur}
           label="Last Name"
           error={touched.lastName && errors.lastName}
           required
@@ -91,7 +91,7 @@ function App() {
           name="email"
           value={values.email}
           onChange={handleChange}
-          handleTouched={handleTouched}
+          onBlur={handleBlur}
           label="Email"
           error={touched.email && errors.email}
           required
@@ -101,7 +101,7 @@ function App() {
           name="message"
           value={values.message}
           onChange={handleChange}
-          handleTouched={handleTouched}
+          onBlur={handleBlur}
           label="Message"
           error={touched.message && errors.message}
           required

@@ -7,7 +7,7 @@ export default function TextField({
   name,
   value,
   onChange,
-  handleTouched,
+  onBlur,
   label,
   error,
   multiline,
@@ -25,7 +25,7 @@ export default function TextField({
           name={name}
           value={value}
           onChange={onChange}
-          onBlur={handleTouched}
+          onBlur={onBlur}
           cols="30"
           rows="10"
           className={styles.input}
@@ -36,7 +36,7 @@ export default function TextField({
           name={name}
           value={value}
           onChange={onChange}
-          onBlur={handleTouched}
+          onBlur={onBlur}
           className={styles.input}
         />
       )}
