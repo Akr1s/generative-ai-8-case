@@ -60,11 +60,12 @@ function App() {
   }
 
   const isSaveDisabled = Object.values(errors).some(Boolean);
+  const showSavedValues = Object.values(formState).every(Boolean);
 
   return (
     <div className={styles.root}>
       <h1 className={styles.title}>Form</h1>
-      <form className={styles.form}>
+      <form className={styles.flexColumnCenter}>
         <TextField
           labelId="firstName-label"
           name="firstName"
@@ -110,6 +111,27 @@ function App() {
           Submit
         </button>
       </form>
+      {showSavedValues && (
+        <div className={styles.flexColumnCenter}>
+          <h2>Saved values</h2>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(formState).map(([key, value]) => (
+                <tr key={key}>
+                  <td>{key}</td>
+                  <td>{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }
